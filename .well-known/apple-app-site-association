@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["RSZJQUDD8W.com.elviric.rubiq"],
+        "components": [
+          { "/": "/c", "comment": "Challenge links" },
+          { "/": "/c.html", "comment": "Challenge links (legacy form)" }
+        ]
+      }
+    ]
+  }
+}

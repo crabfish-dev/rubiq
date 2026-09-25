@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rubiq: Cube &amp; Circles</title>
+  <meta name="description" content="A twisty cube puzzle mapped onto 9 intersecting circles. Turn the cube or the circles, beat the clock, challenge friends. Free, no ads.">
+  <meta property="og:title" content="Rubiq: Cube & Circles">
+  <meta property="og:description" content="One cube. Nine circles. Your clock. Free, no ads.">
+  <meta property="og:image" content="https://rubiq-game.pages.dev/img/icon-512.png">
+  <meta name="theme-color" content="#090b12">
+  <link rel="icon" href="/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a href="/"><img src="/img/icon-512.png" alt=""><span class="brand">RUBIQ</span></a>
+      <nav><a href="/support">Support</a><a href="/privacy">Privacy</a></nav>
+    </header>
+
+    <h1>One cube.<br>Nine circles.<br>Your clock.</h1>
+    <p class="lede">Rubiq maps a twisty cube puzzle onto nine intersecting circles, one dot per sticker. Every circle is a slice. Turn the cube or turn a circle, and the other view follows.</p>
+
+    <div class="actions">
+      <a class="btn hot" id="store" href="#">Download on the App Store</a>
+      <a class="btn ghost" href="/support">How to play</a>
+    </div>
+
+    <img class="hero-img" src="/img/screen-game.png" alt="Rubiq game screen showing the circle graph above a 3D cube" onerror="this.remove()">
+
+    <div class="grid">
+      <div class="card"><h3>Two views, one state</h3><p>Drag a sticker on the 3D cube or a circle in the graph. Both animate together, always in sync.</p></div>
+      <div class="card"><h3>Beat the clock</h3><p>The timer starts on your first twist. Chase your personal best and your average of 5.</p></div>
+      <div class="card"><h3>Daily Challenge</h3><p>One scramble for everyone each day, with a par to beat and a streak to keep.</p></div>
+      <div class="card"><h3>Challenge friends</h3><p>Send a link with your exact scramble and time. They play the same puzzle and try to beat you.</p></div>
+      <div class="card"><h3>Game Center</h3><p>Leaderboards, 14 achievements, and friends, all through Apple's Game Center.</p></div>
+      <div class="card"><h3>From 2×2 to 4×4</h3><p>Warm-up, Easy and Classic scrambles, so anyone can finish their first solve.</p></div>
+    </div>
+
+    <footer>
+      <span>Free forever · No ads · No tracking</span>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/support">Support</a>
+    </footer>
+  </div>
+  <script src="/config.js"></script>
+  <script>
+    const store = document.getElementById("store");
+    if (window.RUBIQ.APP_STORE_URL) { store.href = window.RUBIQ.APP_STORE_URL; }
+    else { store.textContent = "Coming soon to the App Store"; store.removeAttribute("href"); }
+  </script>
+</body>
+</html>

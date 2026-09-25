@@ -1,0 +1,55 @@
+:root {
+  --bg: #090b12;
+  --card: rgba(255, 255, 255, 0.06);
+  --stroke: rgba(255, 255, 255, 0.1);
+  --text: #f4f4f6;
+  --muted: rgba(244, 244, 246, 0.62);
+  --hot: linear-gradient(135deg, #ff8c26, #ff386b);
+  --cool: linear-gradient(135deg, #408cff, #734dff);
+  --logo: linear-gradient(90deg, #ff800f, #eb1f33, #ffd41a, #00b361, #216ef5);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(600px 420px at 100% 0%, rgba(89, 51, 230, 0.28), transparent 70%),
+    radial-gradient(640px 460px at 0% 100%, rgba(255, 102, 51, 0.18), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+a { color: #7fb0ff; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+header.top { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+header.top img { width: 44px; height: 44px; border-radius: 11px; }
+header.top a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; }
+.brand { font: 900 26px/1 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; background: var(--logo); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0.5px; }
+nav { margin-left: auto; display: flex; gap: 16px; font-size: 14px; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--text); }
+h1 { font: 900 clamp(34px, 7vw, 56px)/1.05 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; margin: 8px 0 14px; }
+h2 { font: 800 22px/1.25 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; margin: 36px 0 10px; }
+h3 { font-size: 17px; margin: 22px 0 6px; }
+p, li { color: var(--muted); }
+strong { color: var(--text); }
+.lede { font-size: 19px; color: var(--muted); max-width: 560px; }
+.card { background: var(--card); border: 1px solid var(--stroke); border-radius: 20px; padding: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 18px; }
+.grid .card h3 { margin-top: 0; color: var(--text); }
+.grid .card p { margin: 0; font-size: 15px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 26px; border-radius: 16px; font-weight: 800; font-size: 17px; text-decoration: none; color: #fff; border: 0; cursor: pointer; }
+.btn.hot { background: var(--hot); box-shadow: 0 10px 30px rgba(255, 77, 77, 0.35); }
+.btn.cool { background: var(--cool); }
+.btn.ghost { background: var(--card); border: 1px solid var(--stroke); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0; }
+.hero-img { width: 100%; max-width: 360px; display: block; margin: 26px auto 0; border-radius: 28px; }
+footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--stroke); font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 14px; }
+footer a { color: var(--muted); }
+.time { font: 800 clamp(44px, 12vw, 72px)/1 ui-monospace, "SF Mono", Menlo, monospace; margin: 8px 0; }
+.pill { display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--hot); color: #fff; font-weight: 800; font-size: 13px; }
+.muted { color: var(--muted); }
+details { background: var(--card); border: 1px solid var(--stroke); border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
+summary { cursor: pointer; font-weight: 700; color: var(--text); }

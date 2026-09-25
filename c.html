@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You've been challenged · Rubiq</title>
+  <meta name="description" content="A friend solved this Rubiq scramble. Play the exact same puzzle and try to beat their time.">
+  <meta property="og:title" content="You've been challenged on Rubiq">
+  <meta property="og:description" content="Same scramble, your turn. Can you beat their time?">
+  <meta property="og:image" content="https://rubiq-game.pages.dev/img/icon-512.png">
+  <meta name="theme-color" content="#090b12">
+  <link rel="icon" href="/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a href="/"><img src="/img/icon-512.png" alt=""><span class="brand">RUBIQ</span></a>
+    </header>
+
+    <div class="card" style="text-align:center;padding:28px 20px">
+      <span class="pill">CHALLENGE</span>
+      <h1 id="headline" style="font-size:34px;margin-top:16px">You've been challenged</h1>
+      <p id="detail" class="muted">Same scramble, your turn.</p>
+      <div id="time" class="time" hidden></div>
+      <p id="meta" class="muted"></p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn hot" id="open" href="#">Play this scramble in Rubiq</a>
+        <a class="btn ghost" id="store" href="/">Get Rubiq</a>
+      </div>
+      <p class="muted" style="font-size:13px">Already have Rubiq? Tapping a challenge link in Messages opens the game directly.</p>
+    </div>
+
+    <footer>
+      <span>Free forever · No ads · No tracking</span>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/support">Support</a>
+    </footer>
+  </div>
+  <script src="/config.js"></script>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const n = parseInt(q.get("n"), 10), l = parseInt(q.get("l"), 10), s = q.get("s");
+    const t = parseInt(q.get("t"), 10), m = parseInt(q.get("m"), 10);
+    const from = (q.get("f") || "A friend").slice(0, 24);
+    const valid = n >= 2 && n <= 4 && l >= 1 && l <= 60 && /^\d+$/.test(s || "");
+    const fmt = (cs) => { const mm = Math.floor(cs / 6000), ss = Math.floor(cs / 100) % 60, c = cs % 100;
+      return `${mm}:${String(ss).padStart(2, "0")}.${String(c).padStart(2, "0")}`; };
+
+    // textContent only: the name comes from the URL.
+    document.getElementById("headline").textContent = `${from} challenged you`;
+    if (valid) {
+      document.getElementById("detail").textContent = `${n}×${n} cube · ${l}-twist scramble`;
+      if (t > 0) {
+        const el = document.getElementById("time");
+        el.hidden = false; el.textContent = fmt(t);
+        document.getElementById("meta").textContent = m > 0 ? `${from}'s time with ${m} moves. Can you beat it?` : `${from}'s time. Can you beat it?`;
+      }
+      const params = new URLSearchParams({ n, l, s });
+      if (t > 0) params.set("t", t);
+      if (m > 0) params.set("m", m);
+      params.set("f", from);
+      document.getElementById("open").href = window.RUBIQ.SCHEME + "c?" + params.toString();
+    } else {
+      document.getElementById("detail").textContent = "This challenge link looks incomplete. Ask your friend to send it again.";
+      document.getElementById("open").remove();
+    }
+    if (window.RUBIQ.APP_STORE_URL) {
+      const st = document.getElementById("store");
+      st.href = window.RUBIQ.APP_STORE_URL; st.textContent = "Get Rubiq on the App Store";
+    }
+  </script>
+</body>
+</html>
