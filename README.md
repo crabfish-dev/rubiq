@@ -1,6 +1,6 @@
 # Rubiq website
 
-Static site for **Rubiq: Cube & Circles** (iOS), served at https://rubiq-game.pages.dev on Cloudflare Pages.
+Static site for **Rubiq: Cube & Circles** (iOS), served at https://rubiq-game.crabfish.workers.dev (Cloudflare Pages on Workers static assets).
 
 - `/` landing page
 - `/privacy` privacy policy (App Store Connect → Privacy Policy URL)
@@ -11,7 +11,9 @@ Static site for **Rubiq: Cube & Circles** (iOS), served at https://rubiq-game.pa
 Deploy:
 
 ```bash
-CLOUDFLARE_ACCOUNT_ID=0648aad8895ac6e9e14eabf92a90407d npx wrangler pages deploy . --project-name rubiq-game --branch main
+CLOUDFLARE_ACCOUNT_ID=0648aad8895ac6e9e14eabf92a90407d npx wrangler deploy
 ```
 
 After the app is live, set `APP_STORE_URL` in `config.js` and redeploy.
+
+`.assetsignore` keeps `.git`, `wrangler.jsonc` and this README off the public site.
