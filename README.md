@@ -1,6 +1,6 @@
 # Rubiq website
 
-Static site for **Rubiq: Cube & Circles** (iOS), served at https://rubiq-game.crabfish.workers.dev (Cloudflare Pages on Workers static assets).
+Static site for **Rubiq: Cube & Circles** (iOS), served at https://rubiq.crabfish.dev (Cloudflare Workers static assets; also reachable at rubiq-game.crabfish.workers.dev).
 
 - `/` landing page
 - `/privacy` privacy policy (App Store Connect → Privacy Policy URL)
