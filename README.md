@@ -2,7 +2,7 @@
 
 Static site for **Rubiq: Cube & Circles**, served at https://rubiq.crabfish.dev (Cloudflare Workers static assets; also reachable at rubiq-game.crabfish.workers.dev). The existing iOS pages remain at their original paths. The user authorized Android-specific website additions on 30 September 2026; iOS app code is outside this change.
 
-- `/` landing page
+- `/` landing page, with a playable cube + circle graph (`play.js`, no dependencies; append `#debug` to expose `window.__rubiq`)
 - `/privacy` privacy policy (App Store Connect → Privacy Policy URL)
 - `/support` help & support (App Store Connect → Support URL)
 - `/c?n=3&l=22&s=<seed>&t=<centiseconds>&m=<moves>&f=<name>` challenge links

@@ -9,6 +9,7 @@
   <meta property="og:description" content="One cube. Nine circles. Your clock. Free on iOS, no ads.">
   <meta property="og:image" content="https://rubiq.crabfish.dev/img/icon-512.png">
   <meta name="theme-color" content="#090b12">
+  <meta name="apple-itunes-app" content="app-id=6815993772">
   <link rel="icon" href="/img/favicon-32.png">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
@@ -29,7 +30,36 @@
       <a class="btn ghost" href="/support">How to play</a>
     </div>
 
-    <img class="hero-img" src="/img/screen-game.png" alt="Rubiq game screen showing the circle graph above a 3D cube" onerror="this.remove()">
+    <section id="playground" class="playground" tabindex="0" aria-label="Playable Rubiq: a 3D cube and its circle graph">
+      <div class="pg-head">
+        <div class="pg-sizes" role="group" aria-label="Cube size">
+          <button type="button" data-size="2" aria-pressed="false">2×2</button>
+          <button type="button" data-size="3" aria-pressed="true">3×3</button>
+          <button type="button" data-size="4" aria-pressed="false">4×4</button>
+        </div>
+        <span id="pg-time" class="pg-time" aria-label="Timer">0:00.00</span>
+      </div>
+      <div class="pg-views">
+        <canvas id="pg-graph" role="img" aria-label="Circle graph. Drag along a circle to turn its slice, or tap a circle."></canvas>
+        <canvas id="pg-cube" role="img" aria-label="3D cube. Drag a sticker to turn its layer, drag the background to rotate."></canvas>
+      </div>
+      <p id="pg-status" class="pg-status" aria-live="polite">Try it: drag a sticker or a circle.</p>
+      <div class="pg-controls">
+        <label class="pg-select">
+          <span class="sr-only">Difficulty</span>
+          <select id="pg-difficulty">
+            <option value="warmup">Warm-up · 3 twists</option>
+            <option value="easy" selected>Easy · 6 twists</option>
+            <option value="classic">Classic · full scramble</option>
+          </select>
+        </label>
+        <button type="button" id="pg-scramble" class="btn hot">Scramble &amp; race</button>
+        <button type="button" id="pg-solve" class="btn ghost">Solve</button>
+      </div>
+      <p id="pg-cta" class="pg-cta" hidden>Nice! Daily Challenges, friend challenges and Game Center leaderboards are waiting in the app. <a class="store-link" href="/">Get Rubiq</a></p>
+      <p class="pg-keys">Keyboard: <kbd>U</kbd> <kbd>D</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>F</kbd> <kbd>B</kbd> turn faces, <kbd>Shift</kbd> reverses, arrows rotate.</p>
+      <noscript><img class="hero-img" src="/img/screen-game.png" alt="Rubiq game screen showing the circle graph above a 3D cube"></noscript>
+    </section>
 
     <div class="grid">
       <div class="card"><h3>Two views, one state</h3><p>Drag a sticker on the 3D cube or a circle in the graph. Both animate together, always in sync.</p></div>
@@ -49,8 +79,10 @@
   <script src="/config.js"></script>
   <script>
     const store = document.getElementById("store");
+    document.querySelectorAll(".store-link").forEach((a) => { if (window.RUBIQ.APP_STORE_URL) a.href = window.RUBIQ.APP_STORE_URL; });
     if (window.RUBIQ.APP_STORE_URL) { store.href = window.RUBIQ.APP_STORE_URL; }
     else { store.textContent = "Coming soon to the App Store"; store.removeAttribute("href"); }
   </script>
+  <script src="/play.js" defer></script>
 </body>
 </html>

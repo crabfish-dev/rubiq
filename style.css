@@ -53,3 +53,33 @@ footer a { color: var(--muted); }
 .muted { color: var(--muted); }
 details { background: var(--card); border: 1px solid var(--stroke); border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
 summary { cursor: pointer; font-weight: 700; color: var(--text); }
+
+/* Playable cube */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.playground { margin: 26px 0 8px; padding: 16px; border-radius: 24px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--stroke); outline: none; }
+.playground:focus-visible { border-color: rgba(127, 176, 255, 0.7); }
+.pg-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pg-sizes { display: inline-flex; padding: 3px; border-radius: 12px; background: var(--card); border: 1px solid var(--stroke); }
+.pg-sizes button { border: 0; background: none; color: var(--muted); font: 700 14px/1 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; padding: 8px 12px; border-radius: 9px; cursor: pointer; }
+.pg-sizes button[aria-pressed="true"] { background: var(--cool); color: #fff; }
+.pg-time { font: 800 22px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pg-time.live { color: var(--text); }
+.pg-views { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.pg-views canvas { width: 100%; aspect-ratio: 1; display: block; touch-action: none; cursor: grab; }
+.pg-views canvas:active { cursor: grabbing; }
+.pg-status { margin: 6px 0 12px; min-height: 1.6em; text-align: center; font: 600 14px/1.6 ui-monospace, "SF Mono", Menlo, monospace; color: var(--text); }
+.pg-controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; }
+.pg-controls .btn { padding: 12px 20px; font-size: 15px; }
+.pg-select select { appearance: none; -webkit-appearance: none; background: var(--card); color: var(--text); border: 1px solid var(--stroke); border-radius: 14px; padding: 12px 14px; font: 600 15px/1 -apple-system, BlinkMacSystemFont, sans-serif; cursor: pointer; }
+.pg-cta { margin: 14px 0 0; text-align: center; font-size: 15px; }
+.pg-cta a { font-weight: 800; }
+.pg-keys { margin: 12px 0 0; text-align: center; font-size: 12px; color: var(--muted); }
+kbd { display: inline-block; min-width: 1.6em; padding: 1px 5px; border-radius: 5px; border: 1px solid var(--stroke); background: var(--card); font: 600 11px/1.5 ui-monospace, Menlo, monospace; color: var(--text); text-align: center; }
+.playground.pg-solved .pg-time { color: #66ccbd; }
+@media (max-width: 600px) {
+  .playground { padding: 12px; }
+  .pg-views { grid-template-columns: 1fr; }
+  .pg-views canvas { max-height: 46vh; margin: 0 auto; }
+  .pg-keys { display: none; }
+}
+@media (hover: none) { .pg-keys { display: none; } }
