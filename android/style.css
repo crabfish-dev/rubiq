@@ -1,0 +1,9 @@
+/* Android pages share the existing Rubiq site palette and components. */
+:root { color-scheme: dark; }
+.eyebrow { color: #ffa364; font-size: 12px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; margin: 22px 0 12px; }
+.meta { font-size: 14px; }
+code { color: #ffd2a0; font-size: 0.9em; overflow-wrap: anywhere; }
+.card > h3:first-child { margin-top: 0; }
+.card > p:last-child { margin-bottom: 0; }
+a { overflow-wrap: anywhere; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #ffa364; outline-offset: 4px; border-radius: 3px; }

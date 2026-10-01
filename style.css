@@ -23,7 +23,7 @@ body {
 }
 a { color: #7fb0ff; }
 .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
-header.top { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+header.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 28px; }
 header.top img { width: 44px; height: 44px; border-radius: 11px; }
 header.top a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; }
 .brand { font: 900 26px/1 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; background: var(--logo); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0.5px; }
